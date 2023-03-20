@@ -85,12 +85,12 @@ def corr_matrix(X, num_nodes=29):
 
     return x_A
 
-def write_mtpool_history(history_list, saved_name, num):
-    with open("./MinCutMTPool_saved/MinCutMTPool_Histories/"+ str(num)+"_"+ saved_name+".pickle", 'wb') as fp:
+def write_mtmincutpool_history(history_list, saved_name, num):
+    with open("./MinCutMTPool_saved/MinCutMTPool_Histories/10_run/"+ str(num)+"_"+ saved_name+".pickle", 'wb') as fp:
         pickle.dump(history_list, fp)
 
 def load_history(saved_name, num):
-    fp = "./MinCutMTPool_saved/MinCutMTPool_Histories/" + str(num)+"_"
+    fp = "./MinCutMTPool_saved/MinCutMTPool_Histories/10_run/" + str(num)+"_"
     with open(fp + saved_name + '.pickle', 'rb') as file:
         history_list = pickle.load(file)
     return history_list
@@ -125,7 +125,7 @@ def load_matrix(name):
     return Matrix
 
 def load_models(num):
-    models = torch.load('./MinCutMTPool_saved/MinCutMTPool_Models/mincutmtpool_models'+str(num)+'.pt')
+    models = torch.load('./MinCutMTPool_saved/MinCutMTPool_Models/mtpool_models_'+str(num)+'.pt')
     return models
 def save_corr(Corr):
     fp = "../saved_variables/corr.pickle"
